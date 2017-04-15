@@ -7,7 +7,7 @@ At the time of this experiment, Udacity courses currently have two options on th
 
 In the experiment, Udacity tested a change where if the student clicked "start free trial", they were asked how much time they had available to devote to the course. If the student indicated 5 or more hours per week, they would be taken through the checkout process as usual. If they indicated fewer than 5 hours per week, a message would appear indicating that Udacity courses usually require a greater time commitment for successful completion, and suggesting that the student might like to access the course materials for free. At this point, the student would have the option to continue enrolling in the free trial, or access the course materials for free instead. [This screenshot](https://drive.google.com/file/d/0ByAfiG8HpNUMakVrS0s4cGN2TjQ/view) shows what the experiment looks like.
 
-The hypothesis was that this might set clearer expectations for students upfront, thus reducing the number of frustrated students who left the free trial because they didn't have enough timeâwithout significantly reducing the number of students to continue past the free trial and eventually complete the course. If this hypothesis held true, Udacity could improve the overall student experience and improve coaches' capacity to support students who are likely to complete the course.
+The hypothesis was that this might set clearer expectations for students upfront, thus reducing the number of frustrated students who left the free trial because they didn't have enough time without significantly reducing the number of students to continue past the free trial and eventually complete the course. If this hypothesis held true, Udacity could improve the overall student experience and improve coaches' capacity to support students who are likely to complete the course.
 
 The unit of diversion is a cookie, although if the student enrolls in the free trial, they are tracked by user-id from that point forward. The same user-id cannot enroll in the free trial twice. For users that do not enroll, their user-id is not tracked in the experiment, even if they were signed in when they visited the course overview page.
 
@@ -29,7 +29,7 @@ There are several metrics to choose from as either invariant or evaluation metri
 
 * **Net conversion**: That is, number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by the number of unique cookies to click the "Start free trial" button *(dmin= 0.0075)*. This metric measures whether the treatment helps to convert users who clicked on the button into committed students. Therefore, it serves as an **evaluation metric**. `(number of paid users / number of cookies to click)`
 
-###To summarize:
+### To summarize:
 * **Invariant metrics**: **Number of cookies**, **Number of clicks** and **Click-through-probability**.
 
 * **Evaluation metrics**: **Gross conversion**, **Retention** and **Net conversion**.
@@ -51,7 +51,7 @@ N values are obtained by calculating a scaling factor for the given sample size 
 
 In terms of comparing analytical versus empirical estimates of variability, they are likely to coincide for gross conversion and net conversion as the unit of analysis and unit of diversion are the same in both cases: cookies. As for retention, analytical and empirical estimates are not likely to concide as the unit of analysis is different here: number of enrollments.
 
-##Sizing
+## Sizing
 
 ### Choosing Number of Samples given Power
 
@@ -74,7 +74,7 @@ Clearly, almost 5mln pageviews required for the retention metric is too much and
 
 ### Choosing Duration vs. Exposure
 
-Given that daily traffic is 40,000 pageviews, allocating **50%** of the traffic to the experiment would require ca. ``685,325 / 20,000 = 35` days of exposure. In this case 25% of the users will be exposed to the change, which is a considerable amount. However, the change is not dramatic and is not likely make a catastrophic impact. On the other hand, exposing more users allows to reduce the duration of the experiment, something that is highly desirable.
+Given that daily traffic is 40,000 pageviews, allocating **50%** of the traffic to the experiment would require ca. `685,325 / 20,000 = 35` days of exposure. In this case 25% of the users will be exposed to the change, which is a considerable amount. However, the change is not dramatic and is not likely make a catastrophic impact. On the other hand, exposing more users allows to reduce the duration of the experiment, something that is highly desirable.
 
 
 ## Analysis
@@ -152,16 +152,16 @@ Out of 23 days of experiment we observe 4 instances of lower gross conversion in
 #### Net Conversion
 Out of 23 days there are 10 instances of lower net conversion in the experimental group. The p-value therefore is 0.6776 and the change is not significant at 95% confidence level.
 
-### Summary
+## Summary
 
 In the analysis, I choose not to use Bonferroni correction as the method might be too conservative in the presence of high correlation between metrics.
 The results of both size and sign tests indicate that treatment had statistically and practically significant effects on the gross conversion. The opposite is true for the net conversion.
 
-### Recommendation
+## Recommendation
 
 Based on the results of the analysis, **I would not recommend launching the change**. The question-screen was effective at reducing the number of students who click and enroll, but it was **not effective in increasing the amount of paying students**. Actually, there appeared to be an opposite effect, albeit statistically and practically insignificant.
 
-##Follow-Up Experiment
+## Follow-Up Experiment
 
 A minor change could be potentially added to the present experiment. Namely, in the experimental group the question screen could be modified as to remind the potential long-term students that the amount of effective tuition paid depends on them to a large extent. Also a remaider that 50% of the tuition will be returned if the degree is completed within a short period of time (6 months). 
 
